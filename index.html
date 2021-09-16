@@ -21,7 +21,7 @@
 </head>
 <body>
 
-    <div id="app" >
+    <div id="app" class="container-fluid">
         <header>
             <section class="container-fluid">
                 <div class="row">
@@ -51,9 +51,10 @@
 
                         <ul id="ms_todolist">
                 
-                            <li :class="(toDoList[index].done === true) ? 'checked' : '' " v-for="(element, index) in toDoList" @click='taskDone(index)'>
+                            <li v-for="(element, index) in toDoList">
                                  <p class="ms_list-element">
-                                     {{ toDoList[index].text }}
+                                    
+                                     {{ toDoList[index] }}
                                      <i class="far fa-times-circle text-danger" @click='removeListItem(index)'></i>
                 
                                  </p>
