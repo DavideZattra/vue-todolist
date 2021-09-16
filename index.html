@@ -21,31 +21,54 @@
 </head>
 <body>
 
-    <div id="app" class="container-fluid">
+    <div id="app" >
+        <header>
+            <section class="container-fluid">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h1 class="fw-bold fs-1">Boolean ToDo List</h1>
+                    </div>
+                </div>
+            </section>
+        </header>
+        <main>
+            <section class="container">
 
-        <div id="ms_input-container">
+                <div class="row justify-content-center">
 
-            <input type="text" placeholder="Write what you have to do!" v-model='listItem' @keyup.enter='addListItem'>
-            <button class="btn btn-success" @click='addListItem()'>Inserisci</button>
-        </div>
+                    <div id="ms_input-container" class="col-6 text-center">
 
-       <div id="ms_list-container">
+                        <input type="text" placeholder="Write what you have to do!" v-model='listItem' @keyup.enter='addListItem'>
+                        <button class="btn btn-success" @click='addListItem()'>Inserisci</button>
 
-           <ul id="ms_todolist">
+                    </div>
 
-               <li v-for="(element, index) in toDoList">
-                    <p class="ms_listelement">
+                </div>
 
-                        {{ toDoList[index] }}
-                        <i class="far fa-times-circle" @click='removeListItem(index)'></i>
+                <div class="row justify-content-center">
 
-                    </p>
-               </li>
+                    <div id="ms_list-container" class="col-6 text-center">
 
-           </ul>
-           
-       </div>
+                        <ul id="ms_todolist">
+                
+                            <li :class="(toDoList[index].done === true) ? 'checked' : '' " v-for="(element, index) in toDoList" @click='taskDone(index)'>
+                                 <p class="ms_list-element">
+                                     {{ toDoList[index].text }}
+                                     <i class="far fa-times-circle text-danger" @click='removeListItem(index)'></i>
+                
+                                 </p>
+                            </li>
+                
+                        </ul>
 
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+        
     </div>
     
     <!-- js Import -->

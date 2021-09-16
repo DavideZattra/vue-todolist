@@ -3,9 +3,24 @@ var app = new Vue(
 		el : '#app',
 
 		data : {
-			toDoList : ['comprare nuove scarpe'],
+			toDoList : [
+				{
+					text : 'Comprare nuove scarpe',
+					done : true,
+				},
+				{ 
+					
+					text : 'Appendere mensole camera da letto',
+					done : false,
+				},
+				{ 
+					text :  'Comprare ingredienti per Carbonara',
+					done : false,
+				},
+				],
 
 			listItem : '',
+
 		},
 
 		methods: {
@@ -25,6 +40,14 @@ var app = new Vue(
 				this.toDoList.splice(index,1);
 				console.log(this.toDoList);
 
+			},
+
+			taskDone : function(index){
+				if(this.toDoList[index].done != true){
+          			this.toDoList[index].done = true;
+     			} else {
+          			this.toDoList[index].done = false;
+     			}
 			}
 		}
 		
