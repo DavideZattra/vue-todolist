@@ -13,6 +13,6 @@ header>section{
     
 }
 
-.checked{
-    text-decoration: line-through;
+.ms_done{
+    text-decoration:  line-through 3px black;
 }

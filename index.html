@@ -38,8 +38,8 @@
 
                     <div id="ms_input-container" class="col-6 text-center pt-4 pb-3">
 
-                        <input type="text" placeholder="Write what you have to do!" v-model='listItem' @keyup.enter='addListItem'>
-                        <button class="btn btn-success" @click='addListItem()'>Inserisci</button>
+                        <input type="text" placeholder="Write what you have to do!" v-model='listItem' @keyup.enter='addListItem()'>
+                        <button class="btn btn-success" >Inserisci</button>
 
                     </div>
 
@@ -51,10 +51,10 @@
 
                         <ul id="ms_todolist">
                 
-                            <li v-for="(element, index) in toDoList">
-                                 <p class="ms_list-element">
+                            <li v-for="(element, index) in toDoList" >
+                                 <p class="ms_list-element" :class="(element.done !== false) ? 'ms_done' : ''" @click="changeValue(index)">
                                     
-                                     {{ toDoList[index] }}
+                                     {{ element.text }}
                                      <i class="far fa-times-circle text-danger" @click='removeListItem(index)'></i>
                 
                                  </p>

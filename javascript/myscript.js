@@ -3,7 +3,20 @@ var app = new Vue(
 		el : '#app',
 
 		data : {
-			toDoList : ['comprare nuove scarpe', 'Appendere mensole camera da letto', 'Comprare ingredienti per Carbonara'],
+			toDoList : [
+				{
+					text: 'comprare nuove scarpe',
+					done: false,
+				},
+				{
+					text: 'Appendere mensole camera da letto',
+					done: false,
+				},
+				{
+					text: 'Comprare ingredienti per Carbonara',
+					done: false,
+				},
+			],
 
 			listItem : '',
 			
@@ -12,13 +25,23 @@ var app = new Vue(
 		methods: {
 
 			addListItem : function(){
+				
 
-				if(this.listItem.length>0){
-
-					this.toDoList.push(this.listItem.trim());
-					this.listItem = '';
-
+				let newObj = {
+					text : this.listItem,
+					done : false,
 				}
+
+				console.log(newObj);
+
+				if(newObj.text.length>0){
+					
+					this.toDoList.push(newObj);
+					
+
+					
+				}
+				this.listItem = '';
 				console.log(this.toDoList);
 			},
 
@@ -26,6 +49,30 @@ var app = new Vue(
 				this.toDoList.splice(index,1);
 				console.log(this.toDoList);
 
+			},
+
+			changeValue : function(index){
+				
+				if ( this.toDoList[index].done != true ){
+					
+					this.toDoList[index].done = true;
+					
+					
+					
+					
+				} else{
+					
+					console.log('funziono')
+					this.toDoList[index].done = false
+
+				}
+				
+
+			},
+
+			valueV : function(pippo)
+			{
+				console.log(pippo)
 			}
 		}
 		
