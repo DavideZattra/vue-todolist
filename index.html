@@ -25,7 +25,7 @@
         <header>
             <section class="container-fluid">
                 <div class="row">
-                    <div class="col-12 text-center">
+                    <div class="col-12 text-center p-3">
                         <h1 class="fw-bold fs-1">Boolean ToDo List</h1>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
 
                 <div class="row justify-content-center">
 
-                    <div id="ms_input-container" class="col-6 text-center">
+                    <div id="ms_input-container" class="col-6 text-center pt-4 pb-3">
 
                         <input type="text" placeholder="Write what you have to do!" v-model='listItem' @keyup.enter='addListItem'>
                         <button class="btn btn-success" @click='addListItem()'>Inserisci</button>
